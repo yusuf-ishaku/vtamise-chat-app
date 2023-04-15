@@ -15,8 +15,8 @@ export const SignUpPage = () =>{
     const schema = yup.object().shape({
         userName: yup.string().min(2).required(),
         email: yup.string().email().required(),
-        password: yup.string().min(8).required(),
-        confirmPassword: yup.string().oneOf([yup.ref("password"), null])
+        password: yup.string().min(8).required("Password must be at least 8 characters"),
+        confirmPassword: yup.string().oneOf([yup.ref("password"), null], "Passwords don't match")
     });
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(schema)
@@ -36,9 +36,13 @@ export const SignUpPage = () =>{
                     </header>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-auto flex flex-col mt-6" >
                         <input type="text" placeholder="Username" {...register("userName")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400"  required/>
+                        <p>{errors.userName?.message}</p>
                         <input type="email" placeholder="Email" {...register("email")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
+                        <p>{errors.email?.message}</p>
                         <input type="password" placeholder="Password" {...register("password")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
+                        <p>{errors.password?.message}</p>
                         <input type="password" placeholder="Confirm Password" {...register("confirmPassword")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
+                        <p>{errors.confirmPassword?.message}</p>
                         <button className="bg-black my-3 mt-10 text-stone-100 border-gray-700 border-2 w-full h-fit p-3 rounded-md" type="submit">Create account</button>
                         <button className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-3 rounded-md" type="submit">
                             <FcGoogle></FcGoogle>
@@ -65,17 +69,17 @@ export const SignUpPage = () =>{
                         className="mySwiper"
                     >
                         <SwiperSlide>
-                            <div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">
+                            <div className="swiper flex flex-col justify-center w-[100%] p-4 text-3xl  h-[15rem]">
                                 The platform used by thousands to meet fellow fruit lovers.
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">
+                            <div className="swiper flex flex-col justify-center w-[100%] p-4 text-3xl  h-[15rem]">
                                 Chats, groups and forums... all in one place.
                             </div>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">
+                            <div className="swiper flex flex-col justify-center w-[100%] p-4 text-3xl  h-[15rem]">
                                 Stay on top of upcoming health lifestyle trends, read our blogs, meet nutritionists etc.
                             </div>
                         </SwiperSlide>
