@@ -3,7 +3,7 @@ import FruitImage from "../assets/images/fruitimage.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useForm } from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import * as yup from 'yup';
 // Import Swiper styles
 import "swiper/css";
@@ -44,7 +44,7 @@ export const SignUpPage = () =>{
         resolver: yupResolver(schema)
     });
     const provider = new GoogleAuthProvider();
-
+    const navigate = useNavigate();
     let signinWithGoogle = (auth, provider) =>{
         signInWithPopup(auth, provider)
     .then((result) => {
@@ -53,9 +53,10 @@ export const SignUpPage = () =>{
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log(user);
-      redirect('/login');
-      console.log("fran")
+    //   console.log(user);
+      
+    //   console.log("fran");
+      return navigate('/chat');
       // IdP data available using getAdditionalUserInfo(result)
       // ...
     }).catch((error) => {
