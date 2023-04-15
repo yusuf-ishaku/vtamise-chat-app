@@ -9,6 +9,27 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { initializeApp } from "firebase/app";
+
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBV9mQryKNrEMkObOxf-70pOMcV7j7tYkM",
+    authDomain: "vchat-c5b3b.firebaseapp.com",
+    databaseURL: "https://vchat-c5b3b-default-rtdb.firebaseio.com",
+    projectId: "vchat-c5b3b",
+    storageBucket: "vchat-c5b3b.appspot.com",
+    messagingSenderId: "28715899102",
+    appId: "1:28715899102:web:f4d2f0e403e581bc9e0a4f",
+    measurementId: "G-GQJTY19DKC"
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  
 export const SignUpPage = () =>{
    
 
@@ -21,8 +42,32 @@ export const SignUpPage = () =>{
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(schema)
     });
+    const provider = new GoogleAuthProvider();
 
-
+    let signinWithGoogle = (auth, provider) =>{
+        signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      console.log(user)
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+  
+    }
+    
     const onSubmit = (data) =>{
         console.log(data)
     }
@@ -44,7 +89,7 @@ export const SignUpPage = () =>{
                         <input type="password" placeholder="Confirm Password" {...register("confirmPassword")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
                         <p>{errors.confirmPassword?.message}</p>
                         <button className="bg-black my-3 mt-10 text-stone-100 border-gray-700 border-2 w-full h-fit p-3 rounded-md" type="submit">Create account</button>
-                        <button className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-3 rounded-md" type="submit">
+                        <button onClick={() => signinWithGoogle(auth, provider)} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-3 rounded-md" type="submit">
                             <FcGoogle></FcGoogle>
                                <span>Sign up with Google</span> 
                         </button>
