@@ -1,9 +1,11 @@
-import { FcGoogle } from "react-icons/fc"
+import { FcGoogle } from "react-icons/fc";
+import {AiOutlineEye} from "react-icons/ai";
+import { AiOutlineEyeInvisible} from 'react-icons/ai'
 import FruitImage from "../assets/images/fruitimage.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useForm } from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Octopus } from "../assets/functions/functions";
 import * as yup from 'yup';
 // Import Swiper styles
@@ -13,12 +15,13 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { useState } from "react";
 
 
 export const SignUpPage = () =>{
    
 
-
+   const [eye, setEye] = useState(false);
     const firebaseConfig = {
         apiKey: "AIzaSyBV9mQryKNrEMkObOxf-70pOMcV7j7tYkM",
         authDomain: "vchat-c5b3b.firebaseapp.com",
@@ -34,8 +37,7 @@ export const SignUpPage = () =>{
     const schema = yup.object().shape({
         userName: yup.string().min(2).required(),
         email: yup.string().email().required(),
-        password: yup.string().min(8).required("Password must be at least 8 characters"),
-        confirmPassword: yup.string().oneOf([yup.ref("password"), null], "Passwords don't match")
+        password: yup.string().min(8).required("Password must be at least 8 characters")
     });
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(schema)
@@ -53,23 +55,26 @@ export const SignUpPage = () =>{
             <section className="form flex flex-col items-center justify-center w-[100%] p-4 lg:p-0 lg:w-[40%] bg-white">
                 <section>
                     <header>
-                        <h2 className="text-gray-900 mb-4 tracking-normal font-normal leading-8 text-3xl">Create an account</h2>
+                        <h2 className="text-gray-900 mb-3 tracking-normal font-normal leading-8 text-3xl">Create an account</h2>
                         <article className="text-gray-500 text-sm sm:text-base  font-normal">Join Vtamise chats, and meet with 1000+ fruit lovers!</article>
                     </header>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-auto flex flex-col mt-6" >
-                        <input type="text" placeholder="Username" {...register("userName")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400"  required/>
+                        <input type="text" placeholder="Username" {...register("userName")} className="p-2 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400"  required/>
                         <p>{errors.userName?.message}</p>
-                        <input type="email" placeholder="Email" {...register("email")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
+                        <input type="email" placeholder="Email" {...register("email")} className="p-2 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
                         <p>{errors.email?.message}</p>
-                        <input type="password" placeholder="Password" {...register("password")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
+                        <div className="w-full flex flex-row items-center">
+                            <input type={eye? "text":"password"} placeholder="Password" {...register("password")} className="w-[100%] p-2 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
+                            <span onClick={() => setEye(!eye)} className=" h-full inline-flex flex-row justify-center items-center">{eye ? <AiOutlineEye></AiOutlineEye> : <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
+                        </div>
                         <p>{errors.password?.message}</p>
-                        <input type="password" placeholder="Confirm Password" {...register("confirmPassword")} className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
-                        <p>{errors.confirmPassword?.message}</p>
-                        <button className="bg-black my-3 mt-10 text-stone-100 border-gray-700 border-2 w-full h-fit p-3 rounded-md" type="submit">Create account</button>
-                        <button onClick={() => {Octopus.signinWithGoogle(auth, provider, navigate); Octopus.smile(fry)}} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-3 rounded-md" type="submit">
+                      
+                        <button className="bg-black my-3 mt-8 text-stone-100 border-gray-700 border-2 w-full h-fit p-2 rounded-md" type="submit">Create account</button>
+                        <button onClick={() => {Octopus.signinWithGoogle(auth, provider, navigate); Octopus.smile(fry)}} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
                             <FcGoogle></FcGoogle>
                                <span>Sign up with Google</span> 
                         </button>
+                        <span className="text-gray-600 text-sm mt-2 text-center">Already have an account?<span className="ml-1 underline text-green-600"><Link to="/login">Log in</Link></span></span> 
                     </form>
                 </section>
             </section>
