@@ -10,11 +10,11 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 export const SignUpPage = () =>{
     return(
         <section className="w-[100%] h-[100vh] flex flex-row">
-            <section className="form flex flex-col items-center justify-center w-[40%] bg-white">
+            <section className="form flex flex-col items-center justify-center w-[100%] p-4 lg:p-0 lg:w-[40%] bg-white">
                 <section>
                     <header>
                         <h2 className="text-gray-900 mb-4 tracking-normal font-normal leading-8 text-3xl">Create an account</h2>
-                        <article className="text-gray-500 text-sm font-normal">Join Vtamise chats, and meet with 1000+ fruit lovers!</article>
+                        <article className="text-gray-500 text-sm sm:text-base font-normal">Join Vtamise chats, and meet with 1000+ fruit lovers!</article>
                     </header>
                     <form className="w-auto flex flex-col mt-6" >
                         <input type="text" placeholder="Username" className="p-3 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
@@ -28,9 +28,9 @@ export const SignUpPage = () =>{
                     </form>
                 </section>
             </section>
-            <section className="bing-image w-[60%] bg-stone-300 flex items-center flex-row justify-center">
+            <section className="bing-image hidden w-[60%] bg-stone-300 sm:flex items-center flex-row justify-center">
                 <img src={FruitImage} alt="Fruit Image " />
-                <div className="text-white p-3 card backdrop-blur-sm w-[35rem] bg-transparent border-white border-1 h-64  absolute">
+                <div className="text-white hidden lg:block p-3 card backdrop-blur-sm lg:w-[35rem] bg-transparent border-white border-1 h-64  absolute">
                     <Swiper
                         spaceBetween={30}
                         centeredSlides={true}
@@ -45,9 +45,21 @@ export const SignUpPage = () =>{
                         modules={[Autoplay, Pagination, Navigation]}
                         className="mySwiper"
                     >
-                        <SwiperSlide><div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">The platform used by thousands to meet fellow fruit lovers.</div></SwiperSlide>
-                        <SwiperSlide><div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">Chats, groups and forums... all in one place.</div></SwiperSlide>
-                        <SwiperSlide><div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">Stay on top of upcoming health lifestyle trends, read our blogs, meet nutritionists etc.</div></SwiperSlide>
+                        <SwiperSlide>
+                            <div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">
+                                The platform used by thousands to meet fellow fruit lovers.
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">
+                                Chats, groups and forums... all in one place.
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">
+                                Stay on top of upcoming health lifestyle trends, read our blogs, meet nutritionists etc.
+                            </div>
+                        </SwiperSlide>
 
                     </Swiper>
                 </div>
