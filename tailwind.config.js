@@ -2,7 +2,8 @@
 export default {
   content: [
     "./index.html",
-    "./app.jsx"
+    "./src/app.jsx",
+    "./src/pages/signup-page.jsx"
   ],
   theme: {
     extend: {},
