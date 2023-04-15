@@ -1,5 +1,12 @@
 import { FcGoogle } from "react-icons/fc"
-import FruitImage from "../assets/images/fruitimage.png"
+import FruitImage from "../assets/images/fruitimage.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper";
 export const SignUpPage = () =>{
     return(
         <section className="w-[100%] h-[100vh] flex flex-row">
@@ -24,7 +31,25 @@ export const SignUpPage = () =>{
             <section className="bing-image w-[60%] bg-stone-300 flex items-center flex-row justify-center">
                 <img src={FruitImage} alt="Fruit Image " />
                 <div className="text-white p-3 card backdrop-blur-sm w-[35rem] bg-transparent border-white border-1 h-64  absolute">
-                    
+                    <Swiper
+                        spaceBetween={30}
+                        centeredSlides={true}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        }}
+                        // pagination={{
+                        //     clickable: true,
+                        // }}
+                        // navigation={true}
+                        modules={[Autoplay, Pagination, Navigation]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide><div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">The platform used by thousands to meet fellow fruit lovers.</div></SwiperSlide>
+                        <SwiperSlide><div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">Chats, groups and forums... all in one place.</div></SwiperSlide>
+                        <SwiperSlide><div className="swiper w-[100%] p-4 text-3xl  h-[15rem]">Stay on top of upcoming health lifestyle trends, read our blogs, meet nutritionists etc.</div></SwiperSlide>
+
+                    </Swiper>
                 </div>
             </section>
         </section>
