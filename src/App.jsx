@@ -5,6 +5,7 @@ import {
 import { SignUpPage } from './pages/signup-page';
 import './index.css'
 import { LoginPage } from './pages/login-page';
+import { ChatPage } from './pages/chats-page';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element = {<SignUpPage/>}></Route>
           <Route path='/login' element={<LoginPage></LoginPage>}></Route>
+          <Route path='/chat' element= {<ChatPage></ChatPage>}></Route>
         </Routes>
       
     </div>
