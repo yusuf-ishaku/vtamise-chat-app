@@ -5,7 +5,7 @@ export default {
     "./src/app.jsx",
     "./src/pages/signup-page.jsx",
     "./src/pages/login-page.jsx",
-    "./src/chats-page.jsx"
+    "./src/pages/chats-page.jsx",
   ],
   theme: {
     extend: {},

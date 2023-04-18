@@ -51,7 +51,7 @@ export const SignUpPage = () =>{
     let fry = "smiling"
     
     return(
-        <section className="w-[100%] h-[100vh] flex flex-row">
+        <section className="w-[100%] h-[100vh] flex flex-row-reverse">
             <section className="form flex flex-col items-center justify-center w-[100%] p-4 lg:p-0 lg:w-[40%] bg-white">
                 <section>
                     <header>
