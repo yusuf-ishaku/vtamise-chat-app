@@ -1,15 +1,18 @@
 import { AiOutlineInbox } from 'react-icons/ai'
 import { BsStar,BsTrash3, BsThreeDots } from 'react-icons/bs';
+import { TbMessageCircle2} from 'react-icons/tb'
 import { SlRefresh} from 'react-icons/sl'
 import { IconContext } from 'react-icons';
 import {FiEdit } from 'react-icons/fi';
+import { VscDiffAdded } from 'react-icons/vsc';
+import { CiSearch } from 'react-icons/ci'
 import { NumberCircle } from '../assets/components/other-components/number-circle';
 
 // import
 export const ChatPage = () =>{
     return(
-       <main className="w-[100vw] h-[100vh] p-5 bg-teal-50">
-        <aside className="bg-transparent w-[30%] h-auto p-6 m-6 ml-12">
+       <main className="w-[100vw] h-[100vh] p-5 bg-teal-50 flex flex-row">
+        <aside className="bg-transparent w-[30%] h-auto p-6 m-6 mt-2 ml-12">
            <header className="flex flex-row justify-between">
                 <div className='flex flex-row'>
                     <div className="w-12 cursor-pointer rounded-md flex flex-row items-center justify-center text-center h-12 bg-blue-500">
@@ -75,6 +78,33 @@ export const ChatPage = () =>{
                 </ul>
            </section>
         </aside>
+        <main className='p-6 m-6 mt-2 ml-12'>
+            <header className='flex flex-row items-center justify-center'>
+                <div className='bg-white h-10 w-10 rounded-lg flex flex-row items-center justify-center'>
+                    <IconContext.Provider value={{color: 'black', size: '20px'}}>
+                        <TbMessageCircle2></TbMessageCircle2>
+                    </IconContext.Provider>
+                    
+                </div>
+                <div className='ml-3 font-semibold'>
+                    <h2 className='text-gray-900 text-lg'>Messages</h2>
+                </div>
+                <div className=' flex flex-row items-center justify-center ml-[60%]'>
+                    <div className='w-7 h-7 rounded-md bg-blue-100 flex flex-row justify-center items-center'>
+                        <IconContext.Provider value={{color: 'blue'}}>
+                            <CiSearch></CiSearch>
+                        </IconContext.Provider>
+                        
+                    </div>
+                    <div className='w-7 h-7 rounded-md ml-1  bg-blue-100 flex flex-row justify-center items-center'>
+                        <IconContext.Provider value={{color: 'blue'}}>
+                            <VscDiffAdded></VscDiffAdded>
+                        </IconContext.Provider>
+                        
+                    </div>
+                </div>
+            </header>
+        </main>
        </main>
     )
 }
