@@ -78,25 +78,24 @@ export const ChatPage = () =>{
                 </ul>
            </section>
         </aside>
-        <main className='p-6 m-6 mt-2 ml-12'>
-            <header className='flex flex-row items-center justify-center'>
+        <main className='w-[60%] p-6 m-6 mt-2 ml-12'>
+            <header className='w-full flex flex-row items-center border-b-2 pb-5'>
                 <div className='bg-white h-10 w-10 rounded-lg flex flex-row items-center justify-center'>
                     <IconContext.Provider value={{color: 'black', size: '20px'}}>
                         <TbMessageCircle2></TbMessageCircle2>
                     </IconContext.Provider>
-                    
                 </div>
-                <div className='ml-3 font-semibold'>
+                <div className='ml-3  mr-auto font-semibold'>
                     <h2 className='text-gray-900 text-lg'>Messages</h2>
                 </div>
-                <div className=' flex flex-row items-center justify-center ml-[60%]'>
-                    <div className='w-7 h-7 rounded-md bg-blue-100 flex flex-row justify-center items-center'>
+                <div className=' flex flex-row items-center justify-center '>
+                    <div className='w-8 h-8 rounded-md bg-blue-100 flex flex-row justify-center items-center'>
                         <IconContext.Provider value={{color: 'blue'}}>
                             <CiSearch></CiSearch>
                         </IconContext.Provider>
                         
                     </div>
-                    <div className='w-7 h-7 rounded-md ml-1  bg-blue-100 flex flex-row justify-center items-center'>
+                    <div className='w-8 h-8 rounded-md ml-3  bg-blue-100 flex flex-row justify-center items-center'>
                         <IconContext.Provider value={{color: 'blue'}}>
                             <VscDiffAdded></VscDiffAdded>
                         </IconContext.Provider>
