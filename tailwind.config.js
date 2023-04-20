@@ -6,6 +6,7 @@ export default {
     "./src/pages/signup-page.jsx",
     "./src/pages/login-page.jsx",
     "./src/pages/chats-page.jsx",
+    "./src/assets/components/other-components/number-circle.jsx"
   ],
   theme: {
     extend: {},
