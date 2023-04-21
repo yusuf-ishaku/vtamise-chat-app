@@ -6,6 +6,10 @@
  .form{
   font-family: 'Helvetica Neue', sans-serif;                                                           
  }
+ .chat-active{
+  border-width: 1px;
+  border-color: blue;
+ }
  main{
    font-family: 'Schibsted Grotesk', sans-serif;  
  }

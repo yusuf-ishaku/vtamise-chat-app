@@ -5,8 +5,13 @@ import { SlRefresh} from 'react-icons/sl'
 import { IconContext } from 'react-icons';
 import {FiEdit } from 'react-icons/fi';
 import { VscDiffAdded } from 'react-icons/vsc';
-import { CiSearch } from 'react-icons/ci'
+import { CiSearch } from 'react-icons/ci';
+import { GiPencil } from 'react-icons/gi';
+import { RxCaretDown } from 'react-icons/rx'
+import { CiFilter } from 'react-icons/ci';
 import { NumberCircle } from '../assets/components/other-components/number-circle';
+import { ChatFace } from '../assets/components/essential-components/chatface';
+import Image from "../assets/images/image.jpg"
 
 // import
 export const ChatPage = () =>{
@@ -99,10 +104,48 @@ export const ChatPage = () =>{
                         <IconContext.Provider value={{color: 'blue'}}>
                             <VscDiffAdded></VscDiffAdded>
                         </IconContext.Provider>
-                        
                     </div>
                 </div>
             </header>
+            <header className='flex flex-row mt-7 '>
+                <div className='bg-white h-10 w-fit pr-10 mr-auto rounded-md p-2 flex flex-row items-center'>
+                    <div className='bg-blue-100 h-7 w-8 rounded-md flex flex-row items-center justify-center'>
+                        <IconContext.Provider value={{color: 'blue', size: '16px'}}>
+                            <GiPencil></GiPencil>
+                        </IconContext.Provider>
+                    </div>
+                    <h2 className='ml-3 text-blue-600 text-sm '>New conversation</h2>
+                </div>
+                <div className='w-fit h-10 bg-white rounded-md flex items-center p-2'>
+                    <div className='mr-2'>
+                        <IconContext.Provider value={{ color: 'blue', size: '18px'}}>
+                            <CiFilter></CiFilter>
+                        </IconContext.Provider>
+                    </div>
+                    <article className='flex flex-row items-center'>
+                        <span className='text-blue-500 text-sm'>Sort:</span>
+                        <span className='text-blue-500 text-sm ml-1 '>A - Z</span>
+                        <span className='inline-block ml-2'>
+                            <IconContext.Provider value={{ color: 'blue', size: '24px'}}>
+                                <RxCaretDown></RxCaretDown>
+                            </IconContext.Provider>
+                        </span>
+                    </article>
+                </div>
+            </header> 
+            <main className='h-fit max-h-[60vh] overflow-auto w-full bg-blue-50 mt-4 rounded-md'>
+                <section className='chats w-[40%] flex flex-col border-r-2 p-4 border-w-2'>
+                    <ChatFace image = {Image} see={false} chatactive={true}></ChatFace>
+                    <ChatFace image = {Image} see={false}></ChatFace>
+                    <ChatFace image = {Image} see={false}></ChatFace>
+                    <ChatFace image = {Image} see={false}></ChatFace>
+                    <ChatFace image = {Image} see={false}></ChatFace>
+                    <ChatFace image = {Image} see={false}></ChatFace>
+                    <ChatFace image = {Image} see={false}></ChatFace>
+                    <ChatFace image = {Image} see={false}></ChatFace>
+                    <ChatFace image = {Image} see={false}></ChatFace>
+                </section>
+            </main>
         </main>
        </main>
     )
