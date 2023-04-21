@@ -16,8 +16,8 @@ import Image from "../assets/images/image.jpg"
 // import
 export const ChatPage = () =>{
     return(
-       <main className="w-[100vw] h-[100vh] p-5 bg-teal-50 flex flex-row">
-        <aside className="bg-transparent w-[30%] h-auto p-6 m-6 mt-2 ml-12">
+       <main className="w-[100vw] h-[100vh] p-4 bg-teal-50 flex flex-row">
+        <aside className="bg-transparent w-[30%] h-auto p-6 m-6 mt-0 ml-12">
            <header className="flex flex-row justify-between">
                 <div className='flex flex-row'>
                     <div className="w-12 cursor-pointer rounded-md flex flex-row items-center justify-center text-center h-12 bg-blue-500">
@@ -83,7 +83,7 @@ export const ChatPage = () =>{
                 </ul>
            </section>
         </aside>
-        <main className='w-[60%] p-6 m-6 mt-2 ml-12'>
+        <main className='w-[70%] p-6 m-6 mt-0 ml-12'>
             <header className='w-full flex flex-row items-center border-b-2 pb-5'>
                 <div className='bg-white h-10 w-10 rounded-lg flex flex-row items-center justify-center'>
                     <IconContext.Provider value={{color: 'black', size: '20px'}}>
@@ -107,7 +107,7 @@ export const ChatPage = () =>{
                     </div>
                 </div>
             </header>
-            <header className='flex flex-row mt-7 '>
+            <header className='flex flex-row mt-5 '>
                 <div className='bg-white h-10 w-fit pr-10 mr-auto rounded-md p-2 flex flex-row items-center'>
                     <div className='bg-blue-100 h-7 w-8 rounded-md flex flex-row items-center justify-center'>
                         <IconContext.Provider value={{color: 'blue', size: '16px'}}>
@@ -133,8 +133,8 @@ export const ChatPage = () =>{
                     </article>
                 </div>
             </header> 
-            <main className='h-fit max-h-[60vh] overflow-auto w-full bg-blue-50 mt-4 rounded-md'>
-                <section className='chats w-[40%] flex flex-col border-r-2 p-4 border-w-2'>
+            <main className='h-fit max-h-[60vh]  w-full bg-blue-50 mt-3 rounded-md'>
+                <section className='chats w-[40%] h-[65vh] flex flex-col border-r-2 p-4 border-w-2 overflow-y-scroll'>
                     <ChatFace image = {Image} see={false} chatactive={true}></ChatFace>
                     <ChatFace image = {Image} see={false}></ChatFace>
                     <ChatFace image = {Image} see={false}></ChatFace>
@@ -144,6 +144,9 @@ export const ChatPage = () =>{
                     <ChatFace image = {Image} see={false}></ChatFace>
                     <ChatFace image = {Image} see={false}></ChatFace>
                     <ChatFace image = {Image} see={false}></ChatFace>
+                </section>
+                <section className=''>
+
                 </section>
             </main>
         </main>

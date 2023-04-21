@@ -3,7 +3,7 @@ import { TiTickOutline } from 'react-icons/ti';
 import { TiTick } from 'react-icons/ti';
 export const ChatFace = (props) =>{
     return (
-        <div className={props.chatactive ? "w-full h-15 rounded-md p-3 bg-white flex flex-row items-center mb-4 chat-active" : "w-full h-15 rounded-md p-3 bg-white flex flex-row items-center mb-4"}>
+        <div className={props.chatactive ? "w-full h-15 rounded-md p-3 bg-white flex flex-row items-center mb-2 chat-active" : "w-full h-15 rounded-md p-3 bg-white mb-1 flex flex-row items-center "}>
             <div className="rounded-full h-15 w-15">
                 <img className="w-8 h-8 rounded-full object-cover" src={props.image} alt="" ></img>
             </div>

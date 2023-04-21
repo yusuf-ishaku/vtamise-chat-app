@@ -10,6 +10,14 @@
   border-width: 1px;
   border-color: blue;
  }
+ .chats::-webkit-scrollbar{
+  width: 4px;
+ }
+ .chats::-webkit-scrollbar-thumb{
+  background-color: rgb(218, 218, 255);
+  width: 4px;
+  border-radius: 3px;
+ }
  main{
    font-family: 'Schibsted Grotesk', sans-serif;  
  }
