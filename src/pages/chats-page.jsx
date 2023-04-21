@@ -9,12 +9,14 @@ import { CiSearch } from 'react-icons/ci';
 import { GiPencil } from 'react-icons/gi';
 import { RxCaretDown } from 'react-icons/rx'
 import { CiFilter } from 'react-icons/ci'; 
+import { RiAttachment2 } from 'react-icons/ri'
 import { MdMarkEmailUnread } from "react-icons/md"
 import { NumberCircle } from '../assets/components/other-components/number-circle';
 import { ChatFace } from '../assets/components/essential-components/chatface';
-
+import { GrAttachment } from 'react-icons/gr';
 import { VscStarFull } from 'react-icons/vsc';
-import Image from "../assets/images/image.jpg"
+import Image from "../assets/images/image.jpg";
+import { RiSendPlaneFill } from 'react-icons/ri'
 import { Atext } from '../assets/components/essential-components/atext';
 
 // import
@@ -90,7 +92,7 @@ export const ChatPage = () =>{
            </section>
         </aside>
         <main className='w-[70%] p-6 m-6 mt-0 ml-12'>
-            <header className='w-full flex flex-row items-center border-b-2 pb-5'>
+            <header className='w-full flex flex-row items-center border-b-2 pb-3'>
                 <div className='bg-white h-10 w-10 rounded-lg flex flex-row items-center justify-center'>
                     <IconContext.Provider value={{color: 'black', size: '20px'}}>
                         <TbMessageCircle2></TbMessageCircle2>
@@ -165,16 +167,44 @@ export const ChatPage = () =>{
                             </IconContext.Provider>
                         </div>
                     </header>
-                    <section>
+                    <section className='h-[76%]'>
                         <header className='p-1'>
                             <h6 className='text-sm text-blue-300 ml-1'>Today, {` ${date}` }</h6>
                             <h1 className='text-base font-semibold ml-1'>Where to look for cheap brochure services</h1>
                         </header>
-                        <section className='chats flex flex-col p-4'>
+                        <section className='chats flex flex-col p-4 h-[87%] overflow-scroll'>
                             <Atext me={true} image = {Image} message="I will come over now"></Atext>
-                            <Atext me={false} message = {"Please don't come over I am ill and I'm naked almost all the time in my house, and my dad is also around"}></Atext>
+                            <Atext me={false}  message = {"Please don't come over I am ill and I'm naked almost all the time in my house, and my dad is also around"}></Atext>
+                            <Atext me={false}  message = {"Please, Fortune"}></Atext>
+                            <Atext me={true}image = {Image}   message = {"I know babe, I will not come."}></Atext>
+                            <Atext me={true}image = {Image}   message = {"I will send some things over."}></Atext>
+                            <Atext me={true}image = {Image}   message = {"Is that okay by you?"}></Atext>
+                            <Atext me={false}  message = {"Okay, that's fine"}></Atext>
                         </section>
+                       
                     </section>
+                    <footer className='flex flex-row w-full '>
+                            <div className='flex flex-row items-center w-full mx-3'>
+                                <input placeholder='Type your message'  className='text-blue-600 focus:outline-none placeholder-blue-400 px-4 bg-white rounded-l-full w-full h-10' type='text'></input>
+                                <span className='flex flex-row items-center bg-white p-1 rounded-r-full'>
+                                    <span className="cursor-pointer">
+                                        <IconContext.Provider value={{color: 'blue'}}>
+                                            <RiAttachment2></RiAttachment2>
+                                        </IconContext.Provider>
+                                    </span>
+                                    
+                                    <button className='h-fit mx-2 flex flex-row items-center rounded-full w-fit p-[0.4rem] text-white bg-blue-600 text-sm'>
+                                        <span className='mx-1'>Send</span>
+                                        <span className="mx-1 mr-0">
+                                        <IconContext.Provider value={{ color: 'white'}}>
+                                            <RiSendPlaneFill></RiSendPlaneFill>
+                                        </IconContext.Provider>
+                                        </span>
+                                    </button>
+                                </span>
+                                
+                            </div>
+                    </footer>
                 </section>
             </main>
         </main>
