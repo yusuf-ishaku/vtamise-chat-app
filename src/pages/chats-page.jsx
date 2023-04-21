@@ -1,5 +1,5 @@
 import { AiOutlineInbox } from 'react-icons/ai'
-import { BsStar,BsTrash3, BsThreeDots } from 'react-icons/bs';
+import { BsStar,BsTrash3, BsThreeDots, BsThreeDotsVertical } from 'react-icons/bs';
 import { TbMessageCircle2} from 'react-icons/tb'
 import { SlRefresh} from 'react-icons/sl'
 import { IconContext } from 'react-icons';
@@ -8,9 +8,11 @@ import { VscDiffAdded } from 'react-icons/vsc';
 import { CiSearch } from 'react-icons/ci';
 import { GiPencil } from 'react-icons/gi';
 import { RxCaretDown } from 'react-icons/rx'
-import { CiFilter } from 'react-icons/ci';
+import { CiFilter } from 'react-icons/ci'; 
+import { MdMarkEmailUnread } from "react-icons/md"
 import { NumberCircle } from '../assets/components/other-components/number-circle';
 import { ChatFace } from '../assets/components/essential-components/chatface';
+import { VscStarFull } from 'react-icons/vsc';
 import Image from "../assets/images/image.jpg"
 
 // import
@@ -133,20 +135,35 @@ export const ChatPage = () =>{
                     </article>
                 </div>
             </header> 
-            <main className='h-fit max-h-[60vh]  w-full bg-blue-50 mt-3 rounded-md'>
+            <main className='h-fit max-h-[65vh] flex flex-row  w-full bg-blue-50 mt-3 rounded-md'>
                 <section className='chats w-[40%] h-[65vh] flex flex-col border-r-2 p-4 border-w-2 overflow-y-scroll'>
-                    <ChatFace image = {Image} see={false} chatactive={true}></ChatFace>
-                    <ChatFace image = {Image} see={false}></ChatFace>
-                    <ChatFace image = {Image} see={false}></ChatFace>
-                    <ChatFace image = {Image} see={false}></ChatFace>
-                    <ChatFace image = {Image} see={false}></ChatFace>
-                    <ChatFace image = {Image} see={false}></ChatFace>
-                    <ChatFace image = {Image} see={false}></ChatFace>
-                    <ChatFace image = {Image} see={false}></ChatFace>
-                    <ChatFace image = {Image} see={false}></ChatFace>
+                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
+                    <ChatFace message= "Don't come to Finland again" name = {"Naika O."} image = {Image} see={false}></ChatFace>
+                    <ChatFace message={"Groceries..."} name={"John Stores"} image = {Image} see={false}></ChatFace>
+                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"} image = {Image} see={false}></ChatFace>
+                    <ChatFace message = {"Oven tops are opening new restaurants"} name = {"Pa"} image = {Image} see={false}></ChatFace>
+                    <ChatFace message={"Cleaning lady is out, try Veronica"} name={"Wifey"} image = {Image} see={true}></ChatFace>
+                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
+                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
+                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
+                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
                 </section>
-                <section className=''>
-
+                <section className=' w-[60%]'>
+                    <header className='w-[100%] h-fit flex flex-row items-center pt-2 px-2 border-b-2 pb-2'>
+                        <div className='mr-auto px-4 py-1 h-fit  w-fit rounded-md  bg-red-300 text-red-900'>
+                            Discussion
+                        </div>
+                        <div className='icons flex flex-row items-center '>
+                            <IconContext.Provider value={{color: 'rgb(201, 201, 255)', size: '16px'}}>
+                                <span className='mr-4 cursor-pointer'><VscStarFull></VscStarFull></span>
+                                <span className='mr-4 cursor-pointer'><MdMarkEmailUnread></MdMarkEmailUnread></span>
+                                <span className='mr-4 cursor-pointer'><BsThreeDotsVertical></BsThreeDotsVertical></span>
+                            </IconContext.Provider>
+                        </div>
+                    </header>
+                    <section>
+                        
+                    </section>
                 </section>
             </main>
         </main>

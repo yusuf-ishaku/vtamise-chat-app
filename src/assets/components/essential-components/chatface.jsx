@@ -8,13 +8,13 @@ export const ChatFace = (props) =>{
                 <img className="w-8 h-8 rounded-full object-cover" src={props.image} alt="" ></img>
             </div>
             <div className="flex flex-col ml-2">
-                <h2 className='text-blue-600'>Fortune Ishaku</h2>
+                <h2 className='text-blue-600'>{props.name}</h2>
                 <span className='flex flex-row '>
                     <IconContext.Provider value={{color: 'blue'}}>
                         <div className={props.see ? 'hidden' : 'inline' }><TiTickOutline></TiTickOutline></div>
                         <div className= {props.see ? 'inline' : 'hidden'}><TiTick></TiTick></div>
                     </IconContext.Provider>
-                    <h5 className='text-[0.6rem] text-blue-900'>I don't think I'll come to the hub today</h5>
+                    <h5 className='text-[0.6rem] text-blue-900'>{props.message}</h5>
                 </span>
             </div>
         </div>
