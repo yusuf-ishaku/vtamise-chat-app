@@ -19,6 +19,9 @@
   width: 4px;
   border-radius: 3px;
  }
+ .my-chat{
+  border-bottom-right-radius: -30px;
+ }
  main{
    font-family: 'Schibsted Grotesk', sans-serif;  
  }

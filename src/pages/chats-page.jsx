@@ -12,11 +12,15 @@ import { CiFilter } from 'react-icons/ci';
 import { MdMarkEmailUnread } from "react-icons/md"
 import { NumberCircle } from '../assets/components/other-components/number-circle';
 import { ChatFace } from '../assets/components/essential-components/chatface';
+
 import { VscStarFull } from 'react-icons/vsc';
 import Image from "../assets/images/image.jpg"
+import { Atext } from '../assets/components/essential-components/atext';
 
 // import
 export const ChatPage = () =>{
+    let date = new Date().toLocaleString();
+   
     return(
        <main className="w-[100vw] h-[100vh] p-4 bg-teal-50 flex flex-row">
         <aside className="bg-transparent w-[30%] h-auto p-6 m-6 mt-0 ml-12">
@@ -162,7 +166,14 @@ export const ChatPage = () =>{
                         </div>
                     </header>
                     <section>
-                        
+                        <header className='p-1'>
+                            <h6 className='text-sm text-blue-300 ml-1'>Today, {` ${date}` }</h6>
+                            <h1 className='text-base font-semibold ml-1'>Where to look for cheap brochure services</h1>
+                        </header>
+                        <section className='chats flex flex-col p-4'>
+                            <Atext me={true} image = {Image} message="I will come over now"></Atext>
+                            <Atext me={false} message = {"Please don't come over I am ill and I'm naked almost all the time in my house, and my dad is also around"}></Atext>
+                        </section>
                     </section>
                 </section>
             </main>
