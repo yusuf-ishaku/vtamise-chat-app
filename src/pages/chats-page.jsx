@@ -25,7 +25,7 @@ export const ChatPage = () =>{
    
     return(
        <main className="w-[100vw] h-[100vh] p-4 bg-teal-50 flex flex-row">
-        <aside className="bg-transparent w-[30%] h-auto p-6 m-6 mt-0 ml-12">
+        <aside className="bg-transparent hidden sm:block w-0 sm:w-[30%] h-auto p-6 m-6 mt-0 ml-12">
            <header className="flex flex-row justify-between">
                 <div className='flex flex-row'>
                     <div className="w-12 cursor-pointer rounded-md flex flex-row items-center justify-center text-center h-12 bg-blue-500">
@@ -91,7 +91,7 @@ export const ChatPage = () =>{
                 </ul>
            </section>
         </aside>
-        <main className='w-[70%] p-6 m-6 mt-0 ml-12'>
+        <main className='w-[100%] sm:w-[70%] p-1 sm:p-6 m-0 sm:m-6 mt-0 sm:ml-12'>
             <header className='w-full flex flex-row items-center border-b-2 pb-3'>
                 <div className='bg-white h-10 w-10 rounded-lg flex flex-row items-center justify-center'>
                     <IconContext.Provider value={{color: 'black', size: '20px'}}>
@@ -102,13 +102,19 @@ export const ChatPage = () =>{
                     <h2 className='text-gray-900 text-lg'>Messages</h2>
                 </div>
                 <div className=' flex flex-row items-center justify-center '>
-                    <div className='w-8 h-8 rounded-md bg-blue-100 flex flex-row justify-center items-center'>
+                    <div className='sm:hidden w-8 h-8 rounded-md bg-blue-100 flex flex-row justify-center items-center'>
+                        <IconContext.Provider value={{color: 'blue'}}>
+                            <BsThreeDotsVertical></BsThreeDotsVertical>
+                        </IconContext.Provider>
+                        
+                    </div>
+                    <div className='hidden w-8 h-8 rounded-md bg-blue-100 sm:flex flex-row justify-center items-center'>
                         <IconContext.Provider value={{color: 'blue'}}>
                             <CiSearch></CiSearch>
                         </IconContext.Provider>
                         
                     </div>
-                    <div className='w-8 h-8 rounded-md ml-3  bg-blue-100 flex flex-row justify-center items-center'>
+                    <div className='hidden w-8 h-8 rounded-md ml-3  bg-blue-100 sm:flex flex-row justify-center items-center'>
                         <IconContext.Provider value={{color: 'blue'}}>
                             <VscDiffAdded></VscDiffAdded>
                         </IconContext.Provider>
@@ -141,8 +147,8 @@ export const ChatPage = () =>{
                     </article>
                 </div>
             </header> 
-            <main className='h-fit max-h-[65vh] flex flex-row  w-full bg-blue-50 mt-3 rounded-md'>
-                <section className='chats w-[40%] h-[65vh] flex flex-col border-r-2 p-4 border-w-2 overflow-y-scroll'>
+            <main className='max-h-[100vh] sm:h-fit sm:max-h-[65vh] flex flex-row  w-full bg-blue-50 mt-3 rounded-md'>
+                <section className='chats w-[100%] sm:w-[40%] max-h-[78vh] sm:h-[65vh] flex flex-col border-r-2 p-4 border-w-2 overflow-y-scroll'>
                     <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
                     <ChatFace message= "Don't come to Finland again" name = {"Naika O."} image = {Image} see={false}></ChatFace>
                     <ChatFace message={"Groceries..."} name={"John Stores"} image = {Image} see={false}></ChatFace>
@@ -153,8 +159,14 @@ export const ChatPage = () =>{
                     <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
                     <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
                     <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
+                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
+                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
+                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
+                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
+                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
+
                 </section>
-                <section className=' w-[60%]'>
+                <section className=' hidden w-0 sm:block sm:w-[60%]'>
                     <header className='w-[100%] h-fit flex flex-row items-center pt-2 px-2 border-b-2 pb-2'>
                         <div className='mr-auto px-4 py-1 h-fit  w-fit rounded-md  bg-red-300 text-red-900'>
                             Discussion

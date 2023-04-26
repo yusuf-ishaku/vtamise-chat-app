@@ -19,7 +19,7 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
 export const Octopus = {
     smile: (anal) =>{
-        console.log(anal)
+        // console.log(anal)
     },
     signinWithGoogle: (auth, provider, navigate) =>{
         // console.log(auth)
