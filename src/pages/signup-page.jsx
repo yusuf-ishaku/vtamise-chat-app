@@ -44,10 +44,8 @@ export const SignUpPage = () =>{
     });
     const provider = new GoogleAuthProvider();
     const navigate = useNavigate();
+    let onSubmit = Octopus.createAccountNormally
     
-    const onSubmit = (data) =>{
-        console.log(data)
-    }
     let fry = "smiling"
     
     return(

@@ -8,7 +8,7 @@
  }
  .chat-active{
   border-width: 1px;
-  border-color: blue;
+  border-color: gray;
  }
  .chats::-webkit-scrollbar{
   width: 4px;

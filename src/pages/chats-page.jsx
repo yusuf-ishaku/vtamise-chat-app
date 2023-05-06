@@ -28,7 +28,7 @@ export const ChatPage = () =>{
         <aside className="bg-transparent hidden sm:block w-0 sm:w-[30%] h-auto p-6 m-6 mt-0 ml-12">
            <header className="flex flex-row justify-between">
                 <div className='flex flex-row'>
-                    <div className="w-12 cursor-pointer rounded-md flex flex-row items-center justify-center text-center h-12 bg-blue-500">
+                    <div className="w-12 cursor-pointer rounded-md flex flex-row items-center justify-center text-center h-12 bg-gray-700">
                         <h1 className="text-2xl text-white">FI</h1>
                     </div>
                     <div className="flex flex-col ml-3">
@@ -42,40 +42,40 @@ export const ChatPage = () =>{
            </header>
            <section className= 'w-[100%] bg-white h-fit  mt-10 rounded-xl shadow-[-5px_0px_40px_-20px_rgba(0,0,0,0.3)]'>
                 <ul>
-                    <li className="h-10 rounded-t-xl px-4 bg-blue-100 border-b-2 py-10 flex flex-row items-center">
-                        <IconContext.Provider value = {{color: "blue"}}>
+                    <li className="h-10 rounded-t-xl border-gray-500 px-4 bg-gray-200 border-b-[1px] py-10 flex flex-row items-center">
+                        <IconContext.Provider value = {{color: "gray"}}>
                          <AiOutlineInbox></AiOutlineInbox>
                         </IconContext.Provider>
                          <div className=' ml-3'>
-                            <h3 className='text-lg text-blue-500'>All Chats</h3>
+                            <h3 className='text-lg text-gray-800'>All Chats</h3>
                             <h5 className='text-sm text-gray-600 leading-5 font-light'>The messages you sent are not very true</h5>
                          </div>
                         <NumberCircle count={4}></NumberCircle>
                     </li>
-                    <li className="h-10 px-4 border-b-2 py-10 flex flex-row items-center">
-                        <IconContext.Provider value={{color: 'blue'}}>
+                    <li className="h-10 px-4 border-gray-500 border-b-[1px] py-10 flex flex-row items-center">
+                        <IconContext.Provider value={{color: 'gray'}}>
                             <BsStar></BsStar>
                         </IconContext.Provider>
                         <div className=' ml-3'>
-                            <h3 className='text-lg text-blue-500'>Starred</h3>
+                            <h3 className='text-lg text-gray-800'>Starred</h3>
                             <h5 className='text-sm text-gray-600 leading-5 font-light'>Selected messages will appear here</h5>
                          </div>
                     </li>
-                    <li className="h-10 px-4 border-b-2 py-10 flex flex-row items-center">
-                        <IconContext.Provider value={{color: 'blue'}}>
+                    <li className="h-10 px-4 border-gray-500 border-b-[1px] py-10 flex flex-row items-center">
+                        <IconContext.Provider value={{color: 'gray'}}>
                            <SlRefresh></SlRefresh>
                         </IconContext.Provider>
                         <div className=' ml-3'>
-                            <h3 className='text-lg text-blue-500'>Snoozed</h3>
+                            <h3 className='text-lg text-gray-800'>Snoozed</h3>
                             <h5 className='text-sm text-gray-600 leading-5 font-light'>Snoozed chats</h5>
                          </div>
                     </li>
-                    <li className="h-10 px-4 border-b-2 py-10 flex flex-row items-center"> 
-                        <IconContext.Provider value={{color: 'blue'}}>
+                    <li className="h-10 px-4 border-gray-500 border-b-[1px] py-10 flex flex-row items-center"> 
+                        <IconContext.Provider value={{color: 'gray'}}>
                            <FiEdit></FiEdit>
                         </IconContext.Provider>
                         <div className=' ml-3'>
-                            <h3 className='text-lg text-blue-500'>Drafts</h3>
+                            <h3 className='text-lg text-gray-800'>Drafts</h3>
                             <h5 className='text-sm text-gray-600 leading-5 font-light'>Your drafts appear here</h5>
                          </div>
                     </li>
@@ -103,19 +103,19 @@ export const ChatPage = () =>{
                 </div>
                 <div className=' flex flex-row items-center justify-center '>
                     <div className='sm:hidden w-8 h-8 rounded-md bg-blue-100 flex flex-row justify-center items-center'>
-                        <IconContext.Provider value={{color: 'blue'}}>
+                        <IconContext.Provider value={{color: 'gray'}}>
                             <BsThreeDotsVertical></BsThreeDotsVertical>
                         </IconContext.Provider>
                         
                     </div>
                     <div className='hidden w-8 h-8 rounded-md bg-blue-100 sm:flex flex-row justify-center items-center'>
-                        <IconContext.Provider value={{color: 'blue'}}>
+                        <IconContext.Provider value={{color: 'gray'}}>
                             <CiSearch></CiSearch>
                         </IconContext.Provider>
                         
                     </div>
                     <div className='hidden w-8 h-8 rounded-md ml-3  bg-blue-100 sm:flex flex-row justify-center items-center'>
-                        <IconContext.Provider value={{color: 'blue'}}>
+                        <IconContext.Provider value={{color: 'gray'}}>
                             <VscDiffAdded></VscDiffAdded>
                         </IconContext.Provider>
                     </div>
@@ -124,23 +124,23 @@ export const ChatPage = () =>{
             <header className='flex flex-row mt-5 '>
                 <div className='bg-white h-10 w-fit pr-10 mr-auto rounded-md p-2 flex flex-row items-center'>
                     <div className='bg-blue-100 h-7 w-8 rounded-md flex flex-row items-center justify-center'>
-                        <IconContext.Provider value={{color: 'blue', size: '16px'}}>
+                        <IconContext.Provider value={{color: 'gray', size: '16px'}}>
                             <GiPencil></GiPencil>
                         </IconContext.Provider>
                     </div>
-                    <h2 className='ml-3 text-blue-600 text-sm '>New conversation</h2>
+                    <h2 className='ml-3 text-gray-800 text-sm '>New conversation</h2>
                 </div>
                 <div className='w-fit h-10 bg-white rounded-md flex items-center p-2'>
                     <div className='mr-2'>
-                        <IconContext.Provider value={{ color: 'blue', size: '18px'}}>
+                        <IconContext.Provider value={{ color: 'gray', size: '18px'}}>
                             <CiFilter></CiFilter>
                         </IconContext.Provider>
                     </div>
                     <article className='flex flex-row items-center'>
-                        <span className='text-blue-500 text-sm'>Sort:</span>
-                        <span className='text-blue-500 text-sm ml-1 '>A - Z</span>
+                        <span className='text-gray-700 text-sm'>Sort:</span>
+                        <span className='text-gray-700 text-sm ml-1 '>A - Z</span>
                         <span className='inline-block ml-2'>
-                            <IconContext.Provider value={{ color: 'blue', size: '24px'}}>
+                            <IconContext.Provider value={{ color: 'gray', size: '24px'}}>
                                 <RxCaretDown></RxCaretDown>
                             </IconContext.Provider>
                         </span>
@@ -186,7 +186,7 @@ export const ChatPage = () =>{
                         </header>
                         <section className='chats flex flex-col p-4 h-[87%] overflow-scroll'>
                             <Atext me={true} image = {Image} message="I will come over now"></Atext>
-                            <Atext me={false}  message = {"Please don't come over I am ill and I'm naked almost all the time in my house, and my dad is also around"}></Atext>
+                            <Atext me={false}  message = {"Please don't come over I am ill and my dad is also around"}></Atext>
                             <Atext me={false}  message = {"Please, Fortune"}></Atext>
                             <Atext me={true}image = {Image}   message = {"I know babe, I will not come."}></Atext>
                             <Atext me={true}image = {Image}   message = {"I will send some things over."}></Atext>
@@ -200,12 +200,12 @@ export const ChatPage = () =>{
                                 <input placeholder='Type your message'  className='text-blue-600 focus:outline-none placeholder-blue-400 px-4 bg-white rounded-l-full w-full h-10' type='text'></input>
                                 <span className='flex flex-row items-center bg-white p-1 rounded-r-full'>
                                     <span className="cursor-pointer">
-                                        <IconContext.Provider value={{color: 'blue'}}>
+                                        <IconContext.Provider value={{color: 'gray'}}>
                                             <RiAttachment2></RiAttachment2>
                                         </IconContext.Provider>
                                     </span>
                                     
-                                    <button className='h-fit mx-2 flex flex-row items-center rounded-full w-fit p-[0.4rem] text-white bg-blue-600 text-sm'>
+                                    <button className='h-fit mx-2 flex flex-row items-center rounded-full w-fit p-[0.4rem] text-white bg-gray-600 text-sm'>
                                         <span className='mx-1'>Send</span>
                                         <span className="mx-1 mr-0">
                                         <IconContext.Provider value={{ color: 'white'}}>

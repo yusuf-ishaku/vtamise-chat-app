@@ -8,7 +8,7 @@ export const Atext = (props) =>{
                 
                 {props.image ? <img className="w-5 h-5 rounded-full object-cover" src={props.image} alt="" ></img> : <IconContext.Provider value={{size: '20px'}}><CgProfile></CgProfile></IconContext.Provider>}
             </div>
-            <div className={props.me ? "rounded-br-none px-2 max-w-[16rem]  text-white flex flex-row items-center mb-2 p-1 rounded-md mr-2 bg-blue-600 w-fit h-fit ": "mb-2 rounded-bl-none rounded-md flex flex-row max-w-[16rem] items-center text-blue-700 px-2  p-1 bg-blue-300 w-fit h-fit ml-1 "}>
+            <div className={props.me ? "rounded-br-none px-2 max-w-[16rem]  text-white flex flex-row items-center mb-2 p-1 rounded-md mr-2 bg-gray-700 w-fit h-fit ": "mb-2 rounded-bl-none rounded-md flex flex-row max-w-[16rem] items-center text-gray-700 px-2  p-1 bg-gray-300 w-fit h-fit ml-1 "}>
                 <p className="text-[0.8rem] w-full">{props.message}</p>
             </div>
         </div>

@@ -8,9 +8,9 @@ export const ChatFace = (props) =>{
                 <img className="w-8 h-8 rounded-full object-cover" src={props.image} alt="" ></img>
             </div>
             <div className="flex flex-col ml-2">
-                <h2 className='text-blue-600'>{props.name}</h2>
+                <h2 className='text-gray-800'>{props.name}</h2>
                 <span className='flex flex-row '>
-                    <IconContext.Provider value={{color: 'blue'}}>
+                    <IconContext.Provider value={{color: 'gray'}}>
                         <div className={props.see ? 'hidden' : 'inline' }><TiTickOutline></TiTickOutline></div>
                         <div className= {props.see ? 'inline' : 'hidden'}><TiTick></TiTick></div>
                     </IconContext.Provider>

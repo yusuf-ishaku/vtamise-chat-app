@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 // import { useNavigate } from "react-router-dom";
 import { FcSignature } from "react-icons/fc";
 
@@ -17,6 +17,7 @@ const firebaseConfig = {
 
 
   const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 export const Octopus = {
     smile: (anal) =>{
         // console.log(anal)
@@ -47,6 +48,22 @@ export const Octopus = {
       // ...
     });
   
-    }
-    
+    },
+  createAccountNormally: (data) =>{
+    console.log(data)
+        Octopus.createFirebase(auth, data.email, data.password)
+    },
+  createFirebase: (auth, email, password) =>{
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    })
+  } 
 }
