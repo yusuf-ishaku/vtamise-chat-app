@@ -124,7 +124,7 @@ export const ChatPage = () =>{
                 </div>
             </header>
             <header className='flex flex-row mt-5 '>
-                <div className='bg-white h-10 w-fit pr-10 mr-auto rounded-md p-2 flex flex-row items-center'>
+                <div className='bg-white cursor-pointer h-10 w-fit pr-10 mr-auto rounded-md p-2 flex flex-row items-center'>
                     <div className='bg-blue-100 h-7 w-8 rounded-md flex flex-row items-center justify-center'>
                         <IconContext.Provider value={{color: 'gray', size: '16px'}}>
                             <GiPencil></GiPencil>

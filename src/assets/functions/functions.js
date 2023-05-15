@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import {getDatabase, set,ref, } from 'firebase/database';
+import {getFirestore } from "firebase/firestore";
 // import { useNavigate } from "react-router-dom";
 import { FcSignature } from "react-icons/fc";
 
@@ -19,6 +20,7 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
+  const fdb = getFirestore(app);
 export const auth = getAuth(app);
 export const Octopus = {
     smile: (anal) =>{
@@ -34,7 +36,7 @@ export const Octopus = {
       
       const user = result.user;
       console.log(user);
-      Octopus.setNewUser(user.displayName, user.email, user.photoURL, user.uid)
+      Octopus.setNewUser(user.displayName, user.email, user.photoURL, user.uid);
       return navigate('/chat');
       
     }).catch((error) => {
@@ -50,13 +52,12 @@ export const Octopus = {
   
     },
   createAccountNormally: (data) =>{
-    
     console.log(data)
         Octopus.createFirebase(auth, data.email, data.password)
     },
   createFirebase:  (auth, email, password) =>{
     createUserWithEmailAndPassword(auth, email, password)
-    .then( async (userCredential) => {
+    .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
       console.log(user);

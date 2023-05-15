@@ -16,6 +16,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
+import { data } from "autoprefixer";
 
 
 export const SignUpPage = () =>{
@@ -44,7 +45,10 @@ export const SignUpPage = () =>{
     });
     const provider = new GoogleAuthProvider();
     const navigate = useNavigate();
-    let onSubmit = Octopus.createAccountNormally
+    let onSubmit = (data) =>{
+        console.log(data) 
+        Octopus.createAccountNormally(data)
+    }
     
     let fry = "smiling"
     
