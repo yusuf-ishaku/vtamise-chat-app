@@ -68,7 +68,7 @@ export const SignUpPage = () =>{
                         <p>{errors.password?.message}</p>
                       
                         <button className="bg-black my-3 mt-8 text-stone-100 border-gray-700 border-2 w-full h-fit p-2 rounded-md" type="submit">Create account</button>
-                        <button onClick={() => {Octopus.signinWithGoogle(auth, provider, navigate); Octopus.smile(fry)}} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
+                        <button onClick={(e) => {e.preventDefault();Octopus.signinWithGoogle(auth, provider, navigate); Octopus.smile(fry)}} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
                             <FcGoogle></FcGoogle>
                                <span>Sign up with Google</span> 
                         </button>

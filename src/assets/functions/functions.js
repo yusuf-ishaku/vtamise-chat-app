@@ -1,6 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import {getDatabase, set,ref, } from 'firebase/database';
 // import { useNavigate } from "react-router-dom";
 import { FcSignature } from "react-icons/fc";
 
@@ -17,6 +18,7 @@ const firebaseConfig = {
 
 
   const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
 export const auth = getAuth(app);
 export const Octopus = {
     smile: (anal) =>{
@@ -26,17 +28,15 @@ export const Octopus = {
         // console.log(auth)
     signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
+     
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
+      
       const user = result.user;
       console.log(user);
-      
-    //   console.log("fran");
+      Octopus.setNewUser(user.displayName, user.email, user.photoURL, user.uid)
       return navigate('/chat');
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
+      
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -54,18 +54,26 @@ export const Octopus = {
     console.log(data)
         Octopus.createFirebase(auth, data.email, data.password)
     },
-  createFirebase: (auth, email, password) =>{
+  createFirebase:  (auth, email, password) =>{
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then( async (userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log(user)
+      console.log(user);
       // ...
+     
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       // ..
     })
-  } 
+  },
+  setNewUser: function(username, uemail, imgurl, uid){
+    set(ref(db, 'users/' + uid),{
+      username: username,
+      useremail: uemail,
+      photoimage: imgurl
+    })
+  },
 }
