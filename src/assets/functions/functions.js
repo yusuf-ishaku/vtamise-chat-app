@@ -1,7 +1,8 @@
 
+import { data } from "autoprefixer";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
-import {getDatabase, set,ref, } from 'firebase/database';
+import {getDatabase, set, ref, get, child } from 'firebase/database';
 import {getFirestore } from "firebase/firestore";
 // import { useNavigate } from "react-router-dom";
 import { FcSignature } from "react-icons/fc";
@@ -36,7 +37,8 @@ export const Octopus = {
       
       const user = result.user;
       console.log(user);
-      Octopus.setNewUser(user.displayName, user.email, user.photoURL, user.uid);
+      Octopus.setNewUser(user.displayName, user.email, "", user.photoURL, user.uid, "");
+      // Octopus.setUserPage(user.uid);
       return navigate('/chat');
       
     }).catch((error) => {
@@ -51,16 +53,17 @@ export const Octopus = {
     });
   
     },
-  createAccountNormally: (data) =>{
+  createAccountNormally: (data, navigate) =>{
+    let auth = getAuth(app);
     console.log(data)
-        Octopus.createFirebase(auth, data.email, data.password)
-    },
-  createFirebase:  (auth, email, password) =>{
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, data.email, data.password, data.userName)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
       console.log(user);
+      Octopus.setNewUser(data.userName, data.email, data.password,"", user.uid, user.accessToken);
+      // Octopus.setUserPage(user.uid);
+      return navigate('/chat')
       // ...
      
     })
@@ -69,12 +72,27 @@ export const Octopus = {
       const errorMessage = error.message;
       // ..
     })
-  },
-  setNewUser: function(username, uemail, imgurl, uid){
+    },
+  setNewUser: function(username, uemail,password, imgurl, uid, act){
     set(ref(db, 'users/' + uid),{
       username: username,
       useremail: uemail,
-      photoimage: imgurl
+      photoimage: imgurl,
+      accessToken: act ? act: "",
+      password: password ? password : ""
     })
   },
+  setUserPage: (id) =>{
+    let dbref = ref(db);
+    get(child(dbref,`users/${id}`)).then((snapshot) =>{
+      if(snapshot.exists()){
+        console.log(snapshot.val());
+        return snapshot.val();
+      }else{
+        return
+      }
+    }).catch((error) =>{
+      console.error(error);
+    })
+  }
 }

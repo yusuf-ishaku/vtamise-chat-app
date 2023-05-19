@@ -47,7 +47,7 @@ export const SignUpPage = () =>{
     const navigate = useNavigate();
     let onSubmit = (data) =>{
         console.log(data) 
-        Octopus.createAccountNormally(data)
+        Octopus.createAccountNormally(data, navigate)
     }
     
     let fry = "smiling"
@@ -71,7 +71,7 @@ export const SignUpPage = () =>{
                         </div>
                         <p>{errors.password?.message}</p>
                       
-                        <button className="bg-black my-3 mt-8 text-stone-100 border-gray-700 border-2 w-full h-fit p-2 rounded-md" type="submit">Create account</button>
+                        <button className="active:bg-gray-400 bg-black my-3 mt-8 text-stone-100 border-gray-700 border-2 w-full h-fit p-2 rounded-md" type="submit">Create account</button>
                         <button onClick={(e) => {e.preventDefault();Octopus.signinWithGoogle(auth, provider, navigate); Octopus.smile(fry)}} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
                             <FcGoogle></FcGoogle>
                                <span>Sign up with Google</span> 
