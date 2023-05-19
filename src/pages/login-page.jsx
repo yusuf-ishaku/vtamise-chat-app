@@ -69,7 +69,7 @@ export const LoginPage = () =>{
                         <button className="bg-black my-3 mt-8 text-stone-100 border-gray-700 border-2 w-full h-fit p-2 rounded-md" type="submit">Log in</button>
                         <button onClick={() => {Octopus.signinWithGoogle(auth, provider, navigate);}} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
                             <FcGoogle></FcGoogle>
-                               <span>Sign in with Google</span> 
+                               <span>Continue with Google</span> 
                         </button>
                         <span className="text-gray-600 text-sm mt-2 text-center">Don't have an account?<span className="ml-1 underline text-green-600"><Link to="/">Sign up</Link></span></span> 
                     </form>
