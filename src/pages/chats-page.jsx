@@ -26,13 +26,13 @@ export const ChatPage = () =>{
     let date = new Date().toLocaleString();
     const [ user ] = useAuthState(auth);
     const [userData, setUserData] = useState("");
-    useEffect(() =>{
-        setUserData(Octopus.setUserPage(userAt));
-        console.log(Octopus.setUserPage(userAt));
-    }, []);
-    console.log(user)
-    let userAt = user.uid;
-    console.log(userData);
+    // useEffect(() =>{
+    //     setUserData(Octopus.setUserPage(userAt));
+    //     console.log(Octopus.setUserPage(userAt));
+    // }, []);
+    // console.log(user)
+    // let userAt = user.uid;
+    // console.log(userData);
     return(
        <main className="w-[100vw] h-[100vh] p-4 bg-teal-50 flex flex-row">
         <aside className="bg-transparent hidden sm:block w-0 sm:w-[30%] h-auto p-6 m-6 mt-0 ml-12">
