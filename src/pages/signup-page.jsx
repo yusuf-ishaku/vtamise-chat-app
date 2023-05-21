@@ -37,8 +37,8 @@ export const SignUpPage = () =>{
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const schema = yup.object().shape({
-        userName: yup.string().min(2).required(),
-        email: yup.string().email().required(),
+        userName: yup.string().min(2).required("Username should be a minimum of two characters"),
+        email: yup.string().email().required("A proper email is required"),
         password: yup.string().min(8).required("Password must be at least 8 characters")
     });
     const {register, handleSubmit, formState: {errors}} = useForm({
@@ -48,7 +48,7 @@ export const SignUpPage = () =>{
     const navigate = useNavigate();
     let dispatch = useDispatch();
     let onSubmit = (data) =>{
-        console.log(data) 
+        // console.log(data) 
         Octopus.createAccountNormally(data, navigate, dispatch)
     }
     

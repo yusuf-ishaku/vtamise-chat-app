@@ -38,7 +38,7 @@ export const Octopus = {
       const token = credential.accessToken;
       
       const user = result.user;
-      console.log(user);
+      // console.log(user);
       Octopus.setNewUser(user.displayName, user.email, "", user.photoURL, user.uid, "");
       Octopus.setUserPage(user.uid, dispatch);
       return navigate('/chat');
@@ -57,12 +57,12 @@ export const Octopus = {
     },
   createAccountNormally: (data, navigate, dispatch) =>{
     let auth = getAuth(app);
-    console.log(data)
+    // console.log(data)
     createUserWithEmailAndPassword(auth, data.email, data.password, data.userName)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log(user);
+      // console.log(user);
       Octopus.setNewUser(data.userName, data.email, data.password,"", user.uid, user.accessToken);
       Octopus.setUserPage(user.uid, dispatch);
       return navigate('/chat')
@@ -88,7 +88,7 @@ export const Octopus = {
     let dbref = ref(db);
     get(child(dbref,`users/${id}`)).then((snapshot) =>{
       if(snapshot.exists()){
-        console.log(snapshot.val());
+        // console.log(snapshot.val());
         dispatch(login(snapshot.val()))
         return snapshot.val();
       }else{
