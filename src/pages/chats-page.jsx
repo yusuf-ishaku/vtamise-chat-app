@@ -22,27 +22,23 @@ import { auth } from '../assets/functions/functions';
 import {useAuthState} from "react-firebase-hooks/auth";
 import React, {useState, useEffect} from "react";
 import { Octopus } from '../assets/functions/functions';
+import { useSelector } from 'react-redux';
 export const ChatPage = () =>{
     let date = new Date().toLocaleString();
     const [ user ] = useAuthState(auth);
-    const [userData, setUserData] = useState("");
-    // useEffect(() =>{
-    //     setUserData(Octopus.setUserPage(userAt));
-    //     console.log(Octopus.setUserPage(userAt));
-    // }, []);
-    // console.log(user)
-    // let userAt = user.uid;
-    // console.log(userData);
+    const userData = useSelector((state) => state.userDetails.value);
+    console.log(userData);
+    
     return(
        <main className="w-[100vw] h-[100vh] p-4 bg-teal-50 flex flex-row">
         <aside className="bg-transparent hidden sm:block w-0 sm:w-[30%] h-auto p-6 m-6 mt-0 ml-12">
            <header className="flex flex-row justify-between">
                 <div className='flex flex-row'>
                     <div className="w-12 cursor-pointer rounded-full flex flex-row items-center justify-center text-center h-12 bg-gray-700">
-                    {/* {userData.photoimage ? <img className='rounded-full' src={userData.photoimage}></img> : <h1 className="text-2xl text-white">FI</h1>} */}
+                    {userData.photoimage ? <img className='rounded-full' src={userData.photoimage}></img> : <h1 className="text-2xl text-white">FI</h1>}
                     </div>
                     <div className="flex flex-col ml-3">
-                        {/* <h1 className="text-xl text-gray-700">{userData.username}</h1> */}
+                        <h1 className="text-xl text-gray-700">{userData.username}</h1>
                         <h2 className="text-sm leading-5 font-normal text-gray-400">Avid lover of fruits and veggies.</h2>
                     </div>
                 </div>

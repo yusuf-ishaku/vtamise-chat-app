@@ -4,8 +4,10 @@ import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import {getDatabase, set, ref, get, child } from 'firebase/database';
 import {getFirestore } from "firebase/firestore";
+
 // import { useNavigate } from "react-router-dom";
 import { FcSignature } from "react-icons/fc";
+import { login } from "../store";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBV9mQryKNrEMkObOxf-70pOMcV7j7tYkM",
@@ -27,7 +29,7 @@ export const Octopus = {
     smile: (anal) =>{
         // console.log(anal)
     },
-    signinWithGoogle: (auth, provider, navigate) =>{
+    signinWithGoogle: (auth, provider, navigate, dispatch) =>{
         // console.log(auth)
     signInWithPopup(auth, provider)
     .then((result) => {
@@ -38,7 +40,7 @@ export const Octopus = {
       const user = result.user;
       console.log(user);
       Octopus.setNewUser(user.displayName, user.email, "", user.photoURL, user.uid, "");
-      // Octopus.setUserPage(user.uid);
+      Octopus.setUserPage(user.uid, dispatch);
       return navigate('/chat');
       
     }).catch((error) => {
@@ -53,7 +55,7 @@ export const Octopus = {
     });
   
     },
-  createAccountNormally: (data, navigate) =>{
+  createAccountNormally: (data, navigate, dispatch) =>{
     let auth = getAuth(app);
     console.log(data)
     createUserWithEmailAndPassword(auth, data.email, data.password, data.userName)
@@ -62,7 +64,7 @@ export const Octopus = {
       const user = userCredential.user;
       console.log(user);
       Octopus.setNewUser(data.userName, data.email, data.password,"", user.uid, user.accessToken);
-      // Octopus.setUserPage(user.uid);
+      Octopus.setUserPage(user.uid, dispatch);
       return navigate('/chat')
       // ...
      
@@ -82,11 +84,12 @@ export const Octopus = {
       password: password ? password : ""
     })
   },
-  setUserPage: (id) =>{
+  setUserPage: (id, dispatch) =>{
     let dbref = ref(db);
     get(child(dbref,`users/${id}`)).then((snapshot) =>{
       if(snapshot.exists()){
         console.log(snapshot.val());
+        dispatch(login(snapshot.val()))
         return snapshot.val();
       }else{
         return
