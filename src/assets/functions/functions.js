@@ -1,7 +1,7 @@
 
 import { data } from "autoprefixer";
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import {getDatabase, set, ref, get, child } from 'firebase/database';
 import {getFirestore } from "firebase/firestore";
 
@@ -96,6 +96,18 @@ export const Octopus = {
       }
     }).catch((error) =>{
       console.error(error);
+    })
+  },
+  signInUserNormally: (auth, email, password, dispatch, navigate) =>{
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) =>{
+      const user = userCredential.user;
+      // console.log(user);
+      Octopus.setUserPage(user.uid, dispatch);
+      return navigate('/chat');
+    }).catch((error) =>{
+      const errorCode = error.code;
+      const errorMessage = error.message;
     })
   }
 }
