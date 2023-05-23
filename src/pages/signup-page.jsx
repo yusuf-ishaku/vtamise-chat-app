@@ -64,14 +64,14 @@ export const SignUpPage = () =>{
                     </header>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-auto flex flex-col mt-6" >
                         <input type="text" placeholder="Username" {...register("userName")} className="p-2 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400"  required/>
-                        <p>{errors.userName?.message}</p>
+                        <span className="text-[0.8rem] text-red-600">{errors.userName?.message}</span>
                         <input type="email" placeholder="Email" {...register("email")} className="p-2 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
-                        <p>{errors.email?.message}</p>
+                        <span className="text-[0.8rem] text-red-600">{errors.email?.message}</span>
                         <div className="w-full flex flex-row items-center">
                             <input type={eye? "text":"password"} placeholder="Password" {...register("password")} className="w-[100%] p-2 my-2 pl-1 border-gray-300 border-b-2 focus:outline-none text-gray-700 font-normal text-base tracking-wide placeholder-gray-400" required/>
                             <span onClick={() => setEye(!eye)} className=" h-full inline-flex flex-row justify-center items-center">{eye ? <AiOutlineEye></AiOutlineEye> : <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</span>
                         </div>
-                        <p>{errors.password?.message}</p>
+                        <span className="text-[0.8rem] text-red-600">{errors.password?.message}</span>
                       
                         <button className="active:bg-gray-400 bg-black my-3 mt-8 text-stone-100 border-gray-700 border-2 w-full h-fit p-2 rounded-md" type="submit">Create account</button>
                         <button onClick={(e) => {e.preventDefault();Octopus.signinWithGoogle(auth, provider, navigate, dispatch); }} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">

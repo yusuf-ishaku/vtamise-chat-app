@@ -29,7 +29,7 @@ export const Octopus = {
     smile: (anal) =>{
         // console.log(anal)
     },
-    signinWithGoogle: (auth, provider, navigate, dispatch) =>{
+    signinWithGoogle(auth, provider, navigate, dispatch){
         // console.log(auth)
     signInWithPopup(auth, provider)
     .then((result) => {
@@ -55,7 +55,7 @@ export const Octopus = {
     });
   
     },
-  createAccountNormally: (data, navigate, dispatch) =>{
+  createAccountNormally(data, navigate, dispatch){
     let auth = getAuth(app);
     // console.log(data)
     createUserWithEmailAndPassword(auth, data.email, data.password, data.userName)
@@ -75,7 +75,7 @@ export const Octopus = {
       // ..
     })
     },
-  setNewUser: function(username, uemail,password, imgurl, uid, act){
+  setNewUser(username, uemail,password, imgurl, uid, act){
     set(ref(db, 'users/' + uid),{
       username: username,
       useremail: uemail,
@@ -84,7 +84,7 @@ export const Octopus = {
       password: password ? password : ""
     })
   },
-  setUserPage: (id, dispatch) =>{
+  setUserPage(id, dispatch){
     let dbref = ref(db);
     get(child(dbref,`users/${id}`)).then((snapshot) =>{
       if(snapshot.exists()){
@@ -98,7 +98,7 @@ export const Octopus = {
       console.error(error);
     })
   },
-  signInUserNormally: (auth, email, password, dispatch, navigate) =>{
+  signInUserNormally(auth, email, password, dispatch, navigate){
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) =>{
       const user = userCredential.user;
