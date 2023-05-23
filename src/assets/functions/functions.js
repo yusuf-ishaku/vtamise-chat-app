@@ -1,4 +1,3 @@
-
 import { data } from "autoprefixer";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
@@ -7,7 +6,7 @@ import {getFirestore } from "firebase/firestore";
 
 // import { useNavigate } from "react-router-dom";
 import { FcSignature } from "react-icons/fc";
-import { login } from "../store";
+import { login } from "../appstore/store";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBV9mQryKNrEMkObOxf-70pOMcV7j7tYkM",
