@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice, getDefaultMiddleware } from "@reduxjs/toolkit";
 import  {userSlice} from "./slices/userSlice";
 import storage from "redux-persist/lib/storage";
 import {persistReducer} from "redux-persist";
@@ -16,5 +16,8 @@ const reducer = combineReducers({
 });
 const persistedReducer= persistReducer(persistConfig, reducer)
 export const store = configureStore({
-    reducer: persistReducer,
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>getDefaultMiddleware({serializableCheck:{
+        ignoreActions: [],
+    }})
 })
