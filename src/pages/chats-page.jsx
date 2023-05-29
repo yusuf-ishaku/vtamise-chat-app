@@ -21,16 +21,19 @@ import { Atext } from '../assets/components/essential-components/atext';
 import { auth } from '../assets/functions/functions';
 import {useAuthState} from "react-firebase-hooks/auth";
 import React, {useState, useEffect} from "react";
-import { Octopus } from '../assets/functions/functions';
+import { Model } from '../assets/functions/functions';
 import { useSelector } from 'react-redux';
+import { SearchModal } from '../assets/components/essential-components/searchModal';
 export const ChatPage = () =>{
     let date = new Date().toLocaleString();
     const [ user ] = useAuthState(auth);
     const userData = useSelector((state) => state.userDetails.value);
-    console.log(userData)
+    // console.log(userData)
     // console.log(userData);
     
     return(
+        <>
+         <SearchModal></SearchModal>
        <main className="w-[100vw] h-[100vh] p-4 bg-teal-50 flex flex-row">
         <aside className="bg-transparent hidden sm:block w-0 sm:w-[30%] h-auto p-6 m-6 mt-0 ml-12">
            <header className="flex flex-row justify-between">
@@ -156,22 +159,7 @@ export const ChatPage = () =>{
             </header> 
             <main className='max-h-[100vh] sm:h-fit sm:max-h-[65vh] flex flex-row  w-full bg-blue-50 mt-3 rounded-md'>
                 <section className='chats w-[100%] sm:w-[40%] max-h-[78vh] sm:h-[65vh] flex flex-col border-r-2 p-4 border-w-2 overflow-y-scroll'>
-                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
-                    <ChatFace message= "Don't come to Finland again" name = {"Naika O."} image = {Image} see={false}></ChatFace>
-                    <ChatFace message={"Groceries..."} name={"John Stores"} image = {Image} see={false}></ChatFace>
-                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"} image = {Image} see={false}></ChatFace>
-                    <ChatFace message = {"Oven tops are opening new restaurants"} name = {"Pa"} image = {Image} see={false}></ChatFace>
-                    <ChatFace message={"Cleaning lady is out, try Veronica"} name={"Wifey"} image = {Image} see={true}></ChatFace>
-                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
-                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
-                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
-                    <ChatFace message = {"I think you're funny personally.."} name={"Odara"}  image = {Image} see={false}></ChatFace>
-                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
-                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
-                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
-                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
-                    <ChatFace message="You're running late" name={"Fortune Ishaku"} image = {Image} see={false} chatactive={true}></ChatFace>
-
+                   
                 </section>
                 <section className=' hidden w-0 sm:block sm:w-[60%]'>
                     <header className='w-[100%] h-fit flex flex-row items-center pt-2 px-2 border-b-2 pb-2'>
@@ -228,5 +216,7 @@ export const ChatPage = () =>{
             </main>
         </main>
        </main>
+        </>
+       
     )
 }

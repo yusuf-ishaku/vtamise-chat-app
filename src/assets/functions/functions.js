@@ -24,7 +24,7 @@ const firebaseConfig = {
   const db = getDatabase(app);
   const fdb = getFirestore(app);
 export const auth = getAuth(app);
-export const Octopus = {
+export const Model = {
     smile: (anal) =>{
         // console.log(anal)
     },
@@ -38,8 +38,8 @@ export const Octopus = {
       
       const user = result.user;
       // console.log(user);
-      Octopus.setNewUser(user.displayName, user.email, "", user.photoURL, user.uid, "");
-      Octopus.setUserPage(user.uid, dispatch);
+      Model.setNewUser(user.displayName, user.email, "", user.photoURL, user.uid, token);
+      Model.setUserPage(user.uid, dispatch);
       return navigate('/chat');
       
     }).catch((error) => {
@@ -62,8 +62,8 @@ export const Octopus = {
       // Signed in 
       const user = userCredential.user;
       // console.log(user);
-      Octopus.setNewUser(data.userName, data.email, data.password,"", user.uid, user.accessToken);
-      Octopus.setUserPage(user.uid, dispatch);
+      Model.setNewUser(data.userName, data.email, data.password,"", user.uid, user.accessToken);
+      Model.setUserPage(user.uid, dispatch);
       return navigate('/chat')
       // ...
      
@@ -102,11 +102,15 @@ export const Octopus = {
     .then((userCredential) =>{
       const user = userCredential.user;
       // console.log(user);
-      Octopus.setUserPage(user.uid, dispatch);
+      Model.setUserPage(user.uid, dispatch);
       return navigate('/chat');
     }).catch((error) =>{
       const errorCode = error.code;
       const errorMessage = error.message;
     })
   }
+}
+
+let View = {
+  
 }

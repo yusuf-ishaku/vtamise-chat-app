@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Octopus } from "../assets/functions/functions";
+import { Model } from "../assets/functions/functions";
 import * as yup from 'yup';
 // Import Swiper styles
 import "swiper/css";
@@ -49,7 +49,7 @@ export const SignUpPage = () =>{
     let dispatch = useDispatch();
     let onSubmit = (data) =>{
         // console.log(data) 
-        Octopus.createAccountNormally(data, navigate, dispatch)
+        Model.createAccountNormally(data, navigate, dispatch)
     }
     
     let fry = "smiling"
@@ -74,7 +74,7 @@ export const SignUpPage = () =>{
                         <span className="text-[0.8rem] text-red-600">{errors.password?.message}</span>
                       
                         <button className="active:bg-gray-400 bg-black my-3 mt-8 text-stone-100 border-gray-700 border-2 w-full h-fit p-2 rounded-md" type="submit">Create account</button>
-                        <button onClick={(e) => {e.preventDefault();Octopus.signinWithGoogle(auth, provider, navigate, dispatch); }} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
+                        <button onClick={(e) => {e.preventDefault();Model.signinWithGoogle(auth, provider, navigate, dispatch); }} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
                             <FcGoogle></FcGoogle>
                                <span>Continue with Google</span> 
                         </button>

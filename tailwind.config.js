@@ -8,7 +8,8 @@ export default {
     "./src/pages/chats-page.jsx",
     "./src/assets/components/other-components/number-circle.jsx",
     "./src/assets/components/essential-components/chatface.jsx",
-    "./src/assets/components/essential-components/atext.jsx"
+    "./src/assets/components/essential-components/atext.jsx",
+    "./src/assets/components/essential-components/searchModal.jsx",
   ],
   theme: {
     extend: {},

@@ -6,6 +6,9 @@
  .form{
   font-family: 'Helvetica Neue', sans-serif;                                                           
  }
+ .mym{
+  background-color: white;
+ }
  .chat-active{
   border-width: 1px;
   border-color: gray;

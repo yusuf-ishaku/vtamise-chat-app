@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup';
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Octopus } from "../assets/functions/functions";
+import { Model } from "../assets/functions/functions";
 import * as yup from 'yup';
 // Import Swiper styles
 import "swiper/css";
@@ -37,7 +37,7 @@ export const LoginPage = () =>{
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const schema = yup.object().shape({
-        email: yup.string().email().required(),
+        email: yup.string().email().required("Email is invalid"),
         password: yup.string().min(8).required("Password must be at least 8 characters")
     });
     const {register, handleSubmit, formState: {errors}} = useForm({
@@ -48,8 +48,7 @@ export const LoginPage = () =>{
     
     const onSubmit = (data) =>{
         console.log(data);
-       
-        Octopus.signInUserNormally(auth, data.email, data.password, dispatch, navigate );
+        Model.signInUserNormally(auth, data.email, data.password, dispatch, navigate );
     }
     // let fry = "smiling"
     
@@ -71,7 +70,7 @@ export const LoginPage = () =>{
                         <span className="text-[0.8rem] text-red-600">{errors.password?.message}</span>
                       
                         <button className="bg-black my-3 mt-8 text-stone-100 border-gray-700 border-2 w-full h-fit p-2 rounded-md" type="submit">Log in</button>
-                        <button onClick={() => {Octopus.signinWithGoogle(auth, provider, navigate, dispatch);}} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
+                        <button onClick={() => {Model.signinWithGoogle(auth, provider, navigate, dispatch);}} className="bg-stone-50 my-2 flex flex-row items-center justify-center text-gray-900 border-gray-300 border-2 w-full h-fit p-2 rounded-md" type="submit">
                             <FcGoogle></FcGoogle>
                                <span>Continue with Google</span> 
                         </button>
