@@ -27,6 +27,7 @@ export const ChatPage = () =>{
     let date = new Date().toLocaleString();
     const [ user ] = useAuthState(auth);
     const userData = useSelector((state) => state.userDetails.value);
+    console.log(userData)
     // console.log(userData);
     
     return(
