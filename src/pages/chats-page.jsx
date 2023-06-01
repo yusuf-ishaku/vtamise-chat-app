@@ -4,6 +4,7 @@ import { TbMessageCircle2} from 'react-icons/tb'
 import { SlRefresh} from 'react-icons/sl'
 import { IconContext } from 'react-icons';
 import {FiEdit } from 'react-icons/fi';
+import { Desc } from '../assets/components/other-components/desc';
 import { VscDiffAdded } from 'react-icons/vsc';
 import { CiSearch } from 'react-icons/ci';
 import { GiPencil } from 'react-icons/gi';
@@ -21,19 +22,24 @@ import { Atext } from '../assets/components/essential-components/atext';
 import { auth } from '../assets/functions/functions';
 import {useAuthState} from "react-firebase-hooks/auth";
 import React, {useState, useEffect} from "react";
-import { Model } from '../assets/functions/functions';
+import { Model, View } from '../assets/functions/functions';
 import { useSelector } from 'react-redux';
 import { SearchModal } from '../assets/components/essential-components/searchModal';
+import { set } from 'react-hook-form';
+
 export const ChatPage = () =>{
     let date = new Date().toLocaleString();
     const [ user ] = useAuthState(auth);
     const userData = useSelector((state) => state.userDetails.value);
+    let userAt = userData.uid
+    const [hideSearch, setHideSearch] = useState(false)
     // console.log(userData)
     // console.log(userData);
     
     return(
         <>
-         <SearchModal></SearchModal>
+      
+        {hideSearch ? <SearchModal ></SearchModal> : ""}
        <main className="w-[100vw] h-[100vh] p-4 bg-teal-50 flex flex-row">
         <aside className="bg-transparent hidden sm:block w-0 sm:w-[30%] h-auto p-6 m-6 mt-0 ml-12">
            <header className="flex flex-row justify-between">
@@ -132,7 +138,11 @@ export const ChatPage = () =>{
                 </div>
             </header>
             <header className='flex flex-row mt-5 '>
-                <div className='bg-white cursor-pointer h-10 w-fit pr-10 mr-auto rounded-md p-2 flex flex-row items-center'>
+                <div onClick={()=>{ 
+                    setHideSearch(!hideSearch); 
+                    View.getChats(user.uid)
+                    }
+                    } className='bg-white cursor-pointer h-10 w-fit pr-10 mr-auto rounded-md p-2 flex flex-row items-center'>
                     <div className='bg-blue-100 h-7 w-8 rounded-md flex flex-row items-center justify-center'>
                         <IconContext.Provider value={{color: 'gray', size: '16px'}}>
                             <GiPencil></GiPencil>
@@ -159,7 +169,16 @@ export const ChatPage = () =>{
             </header> 
             <main className='max-h-[100vh] sm:h-fit sm:max-h-[65vh] flex flex-row  w-full bg-blue-50 mt-3 rounded-md'>
                 <section className='chats w-[100%] sm:w-[40%] max-h-[78vh] sm:h-[65vh] flex flex-col border-r-2 p-4 border-w-2 overflow-y-scroll'>
-                   
+                  { View.getChats(userData.uid) ?
+                    <>
+                        
+                        <ChatFace></ChatFace>
+                        <ChatFace></ChatFace>
+                        <ChatFace></ChatFace>
+                    </>
+                    :
+                    <Desc></Desc>
+                   } 
                 </section>
                 <section className=' hidden w-0 sm:block sm:w-[60%]'>
                     <header className='w-[100%] h-fit flex flex-row items-center pt-2 px-2 border-b-2 pb-2'>

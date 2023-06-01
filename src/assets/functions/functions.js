@@ -1,7 +1,7 @@
 import { data } from "autoprefixer";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import {getDatabase, set, ref, get, child } from 'firebase/database';
+import {getDatabase, set, ref, get, child, onValue } from 'firebase/database';
 import {getFirestore } from "firebase/firestore";
 
 // import { useNavigate } from "react-router-dom";
@@ -76,6 +76,7 @@ export const Model = {
     },
   setNewUser(username, uemail,password, imgurl, uid, act){
     set(ref(db, 'users/' + uid),{
+      uid,
       username: username,
       useremail: uemail,
       photoimage: imgurl,
@@ -111,6 +112,12 @@ export const Model = {
   }
 }
 
-let View = {
-  
+export const View = {
+  getChats(id){
+    onValue(ref(db, "/users/" + `${id}/chats/` ), (snapshot) =>{
+        let data = snapshot.val();
+        // console.log(data)
+        return data
+    })
+  }
 }

@@ -10,6 +10,7 @@ export default {
     "./src/assets/components/essential-components/chatface.jsx",
     "./src/assets/components/essential-components/atext.jsx",
     "./src/assets/components/essential-components/searchModal.jsx",
+    "./src/assets/components/other-components/desc.jsx"
   ],
   theme: {
     extend: {},
